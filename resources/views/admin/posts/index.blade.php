@@ -11,6 +11,8 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Slug</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Category</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -21,6 +23,16 @@
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
                     <td>{{$post->description}}</td>
+                    <td>
+                      @forelse($post->tags as $tag)
+                        {{$tag->name}}
+                      @empty
+                        -
+                      @endforelse
+                    </td>
+                    <td>
+                        {{$post->category->name}}
+                    </td>
                     <td>{{$post->slug}}</td>
                     <td>
                       <a href="{{route('admin.posts.show', $post->id)}}">Show</a>
