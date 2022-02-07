@@ -25,7 +25,7 @@
                     <td>{{$post->description}}</td>
                     <td>
                       @forelse($post->tags as $tag)
-                        {{$tag->name}}
+                      <span class="badge badge-primary">{{$tag->name}}</span>
                       @empty
                         -
                       @endforelse
